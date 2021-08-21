@@ -10,8 +10,6 @@ import javax.persistence.*;
 @Getter
 @Table(name = "Users")
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Entity
 public class User extends DatabaseEntity {
 
@@ -29,5 +27,10 @@ public class User extends DatabaseEntity {
     @Enumerated(EnumType.STRING)
     private RoleInfo role;
 
-
+    @Builder
+    public User(String username, String password, RoleInfo role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
 }
