@@ -24,13 +24,18 @@ public class User extends DatabaseEntity {
     @Column(nullable = false, length = 100)
     private String password;
 
+    @Column(nullable = false, length = 50)
+    private String email;
+
     @Enumerated(EnumType.STRING)
     private RoleInfo role;
 
+
     @Builder
-    public User(String username, String password, RoleInfo role) {
+    public User(String username, String password, String email, RoleInfo role) {
         this.username = username;
         this.password = password;
+        this.email = email;
         this.role = role;
     }
 }
