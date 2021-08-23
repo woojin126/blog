@@ -1,15 +1,11 @@
-package myProject.blog.dto;
+package myProject.blog.dto.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import myProject.blog.entity.User;
 import org.springframework.http.HttpStatus;
 
 @Data
-@NoArgsConstructor
-@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ResponseDto<T> {
 
      T data;
