@@ -1,4 +1,4 @@
-package myProject.blog.exception;
+package myProject.blog.exception.customException;
 
 import lombok.Data;
 
