@@ -1,14 +1,14 @@
 package myProject.blog.service;
 
 import lombok.RequiredArgsConstructor;
-import myProject.blog.dto.RequestDto;
+import myProject.blog.dto.user.RequestDto;
+import myProject.blog.dto.user.RequestLoginDto;
 import myProject.blog.entity.User;
-import myProject.blog.exception.DuplicatedUsernameException;
-import myProject.blog.exception.UserNotFoundException;
+import myProject.blog.exception.customException.DuplicatedUsernameException;
+import myProject.blog.exception.customException.UserNotFoundException;
 import myProject.blog.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.thymeleaf.util.TextUtils;
 
 import java.util.Optional;
 
@@ -20,7 +20,9 @@ public class UserService {
 
     @Transactional
     public User save(RequestDto requestDto) throws Exception {
-        if ((requestDto.getUsername() == null) || (requestDto.getUsername().equals("")) || (requestDto.getPassword().equals("")) || (requestDto.getPassword() == null)) {
+        if ((requestDto.getUsername() == null) || (requestDto.getUsername().equals(""))
+                || (requestDto.getPassword() == null) || (requestDto.getPassword().equals(""))
+                || (requestDto.getEmail() == null) || (requestDto.getEmail().equals(""))) {
             throw new UserNotFoundException("아이디 비밀번호는 공백 불가능");
         }
 
@@ -29,5 +31,11 @@ public class UserService {
             throw new DuplicatedUsernameException("이미 가입한 회원입니다");
         }
         return userRepository.save(requestDto.toEntity());
+    }
+
+    public User login(RequestLoginDto requestDto) throws Exception {
+        return userRepository.findByUsernameAndPassword(requestDto.toEntity().getUsername(), requestDto.toEntity().getPassword()).orElseThrow(() -> {
+            throw new UserNotFoundException("잘못된 아이디 비밀번호 입니다");
+        });
     }
 }
