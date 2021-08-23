@@ -1,4 +1,4 @@
-package myProject.blog.exception;
+package myProject.blog.exception.customException;
 
 public class UserNotFoundException extends RuntimeException{
 
