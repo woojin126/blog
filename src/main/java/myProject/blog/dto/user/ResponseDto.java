@@ -1,7 +1,6 @@
 package myProject.blog.dto.user;
 
 import lombok.*;
-import myProject.blog.entity.User;
 import org.springframework.http.HttpStatus;
 
 @Data
