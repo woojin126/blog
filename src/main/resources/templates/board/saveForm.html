@@ -8,8 +8,9 @@
 <div th:replace="/fragments/nav.html :: fragment-nav">
 </div>
 
+<!--th:action="@{/auth/loginProc}" method="post"-->
 <div class="container">
-    <form th:action="@{/auth/loginProc}" method="post">
+    <form>
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text"  class="form-control" placeholder="Enter title" id="title">
