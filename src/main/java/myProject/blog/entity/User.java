@@ -8,9 +8,10 @@ import javax.persistence.*;
 
 
 @Getter
-@Setter
 @Table(name = "Users")
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 public class User extends DatabaseEntity {
 
@@ -32,11 +33,5 @@ public class User extends DatabaseEntity {
     private RoleInfo role;
 
 
-    @Builder
-    public User(String username, String password, String email, RoleInfo role) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.role = role;
-    }
+
 }
