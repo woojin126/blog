@@ -1,0 +1,33 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://database-1.cpn9toctpawb.us-east-2.rds.amazonaws.com:3306/jpashops?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: 47429468bB@
+    #url: jdbc:mysql://localhost:3306/jpashops?autoReconnect=true&serverTimezone=Asia/Seoul&characterEncoding=utf8
+    #username: woojin
+    #password: 47429468bb@
+
+  devtools:
+    livereload:
+      enabled: true
+
+  freemarker:
+    cache: false
+
+  jpa:
+    hibernate:
+      ddl-auto: update   #애플리케이션  실행시점에 내가가지고잇는 엔티티를지우고(테이블) 다시생성
+    properties:
+      hibernate:
+        #show_sql: true 엔 sout에 출력해서  안쓰는게좋다
+        format_sql: true
+        default_batch_fetch_size: 100
+logging:
+  level:
+    org.hibernate.SQL: debug
+    # org.hibernate.type: trace
+
+
+
