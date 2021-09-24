@@ -5,16 +5,15 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import myProject.blog.entity.timesupperclass.DatabaseEntity;
-import org.hibernate.annotations.ColumnDefault;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.List;
+
 
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 public class Board extends DatabaseEntity {
 
@@ -29,7 +28,6 @@ public class Board extends DatabaseEntity {
     @Lob //대용량 데이터
     private String content; //섬머노트 라이브러리 <html> 섞여서 디자인됨
 
-    @ColumnDefault("0")
     private int count; // 조회수
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -39,10 +37,6 @@ public class Board extends DatabaseEntity {
     @OneToMany(mappedBy = "board")
     private List<Reply> replyList;
 
-    @Builder
-    public Board(String title, String content, int count) {
-        this.title = title;
-        this.content = content;
-        this.count = count;
-    }
+
+
 }

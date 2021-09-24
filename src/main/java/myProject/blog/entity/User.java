@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 
 @Getter
-@Table(name = "Users")
+@Table(name = "UserInfo")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
