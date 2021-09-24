@@ -4,7 +4,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://database-1.cpn9toctpawb.us-east-2.rds.amazonaws.com:3306/jpashops?serverTimezone=UTC&characterEncoding=UTF-8
     username: root
-    password: 47429468bB@
+    password: 47429468bb
     #url: jdbc:mysql://localhost:3306/jpashops?autoReconnect=true&serverTimezone=Asia/Seoul&characterEncoding=utf8
     #username: woojin
     #password: 47429468bb@
